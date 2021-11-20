@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Http\Resources\TripResource;
 use App\Models\Trip;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -151,10 +152,13 @@ class TripsController extends BaseApiController
             }
         }
 
+        if (count($found_trips) > 0)
+            $found_trips = TripResource::collection($found_trips);
+
         return response()->json([
             'results' =>
                 [
-                    'total price' => $total_price,
+                    'total price' => (float)$total_price,
                     'duration' => $duration,
                     'schedule' => $found_trips
                 ]
