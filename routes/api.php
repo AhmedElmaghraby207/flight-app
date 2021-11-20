@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'trips', 'namespace' => 'App\Http\Controllers\API\V1'], function () {
     Route::post('/store', 'TripsController@store');
+    Route::get('/get', 'TripsController@get');
 });
