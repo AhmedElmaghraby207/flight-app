@@ -17,7 +17,7 @@ class CreateTripsTable extends Migration
             $table->id();
             $table->string('origin_city', 35);
             $table->string('destination_city', 35);
-            $table->decimal('price', 19, 4);
+            $table->decimal('price', 20);
             $table->timestamp('take_off_time');
             $table->timestamp('landing_time');
             $table->timestamps();
